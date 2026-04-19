@@ -28,7 +28,7 @@ while c==True:
     if count>5:
         summarize=client.chat.completions.create(model="llama-3.3-70b-versatile",messages=[{"role":"user","content":f"summarise this: {long_history}"}])
         summary=summarize.choices[0].message.content
-        history[1]={"role":"system","content":summary}
+        history[1]={"role":"system","content":f"summary: {summary}"}
 
     if len(history)>6:
         history=history[0:2]+history[-5:]
